@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Miss Poonam 🎂✨</title>
+
+<style>
+  body{
+    margin:0;
+    font-family: "Poppins", sans-serif;
+    background: radial-gradient(circle, #fff2cc, #ffb6c1);
+    text-align:center;
+    overflow-x:hidden;
+  }
+
+  h1{
+    font-size:42px;
+    color:#ff0066;
+    text-shadow:0 0 10px rgba(0,0,0,0.2);
+  }
+
+  p{
+    font-size:22px;
+    line-height:1.6;
+  }
+
+  .box{
+    background: rgba(255,255,255,0.88);
+    max-width:780px;
+    margin:50px auto;
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 0 30px rgba(0,0,0,0.25);
+    animation: pop 0.9s ease;
+    display:none;
+  }
+
+  @keyframes pop{
+    from{transform:scale(0.85);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+  }
+
+  button{
+    padding:16px 35px;
+    font-size:22px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    background:#ff0066;
+    color:white;
+    margin-top:20px;
+    transition:0.25s;
+  }
+
+  button:hover{
+    transform:scale(1.08);
+    background:#cc004f;
+  }
+
+  input{
+    width:80%;
+    padding:14px;
+    font-size:20px;
+    border-radius:15px;
+    border:1px solid #aaa;
+    margin-top:10px;
+  }
+
+  .compliment{
+    margin-top:15px;
+    font-size:22px;
+    color:purple;
+    font-weight:bold;
+  }
+
+  /* Floating stars */
+  .star{
+    position:fixed;
+    bottom:-20px;
+    font-size:26px;
+    animation: floatUp 7s linear infinite;
+  }
+
+  @keyframes floatUp{
+    from{transform:translateY(0);opacity:1;}
+    to{transform:translateY(-120vh);opacity:0;}
+  }
+
+  /* Boom Confetti */
+  .boom{
+    font-size:80px;
+    animation: boom 1s infinite alternate;
+  }
+  @keyframes boom{
+    from{transform:scale(1);}
+    to{transform:scale(1.25);}
+  }
+
+  .letter{
+    text-align:left;
+    font-size:22px;
+    line-height:1.9;
+    padding:20px;
+  }
+
+  img{
+    width:280px;
+    margin-top:20px;
+    border-radius:25px;
+    box-shadow:0 0 25px rgba(0,0,0,0.3);
+  }
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="mom.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+/* Stars animation */
+function createStar(){
+  const s=document.createElement("div");
+  s.className="star";
+  s.innerHTML="✨";
+  s.style.left=Math.random()*100+"vw";
+  s.style.animationDuration=(3+Math.random()*5)+"s";
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),7000);
+}
+setInterval(createStar,450);
+</script>
+
+<!-- STEP 1 -->
+<div class="box" id="step1" style="display:block;">
+  <h1>🌸 Press This Button Miss Poonam 🌸</h1>
+  <p>
+    Welcome to your Birthday Astrology Surprise ✨💰  
+  </p>
+  <button onclick="startSite()">Start Mission 🎂</button>
+</div>
+
+<!-- STEP 2 -->
+<div class="box" id="step2">
+  <h1>🔮 Jyotish Question 1</h1>
+  <p>
+    Miss Poonam… aapke future me sabse pehle kya likha hai? 😌
+  </p>
+  <input id="ans1" placeholder="Type your answer...">
+  <button onclick="checkAnswer(1)">Next ➝</button>
+  <div class="compliment" id="comp1"></div>
+</div>
+
+<!-- STEP 3 -->
+<div class="box" id="step3">
+  <h1>💎 Jyotish Question 2</h1>
+  <p>
+    Aapko astrology bol rahi hai… aap ameer banogi 😋  
+    Pehle gift kya logi? Gold ya Diamonds?
+  </p>
+  <input id="ans2" placeholder="Type your answer...">
+  <button onclick="checkAnswer(2)">Next ➝</button>
+  <div class="compliment" id="comp2"></div>
+</div>
+
+<!-- STEP 4 -->
+<div class="box" id="step4">
+  <h1>💰 Jyotish Question 3</h1>
+  <p>
+    Agar 1 crore mil jaye… sabse pehle kya karogi? 🌚❤️
+  </p>
+  <input id="ans3" placeholder="Type your answer...">
+  <button onclick="checkAnswer(3)">Next ➝</button>
+  <div class="compliment" id="comp3"></div>
+</div>
+
+<!-- STEP 5 FINAL QUESTION -->
+<div class="box" id="step5">
+  <h1>🎇 Final Prediction</h1>
+  <p>
+    Miss Poonam… Ready for the BIGGEST Surprise Boom? 💥
+  </p>
+  <button onclick="boomTime()">YESSS 💖</button>
+</div>
+
+<!-- STEP 6 BOOM -->
+<div class="box" id="step6">
+  <div class="boom">💥🎉💥</div>
+  <h1>BOOMMMM!!!</h1>
+  <p>Your birthday letter is opening… 💌</p>
+  <button onclick="nextStep(6)">Open Letter 💖</button>
+</div>
+
+<!-- STEP 7 LETTER -->
+<div class="box" id="step7">
+  <h1>💌 Birthday Letter</h1>
+  <div class="letter">
+    mummy ji aap 43 ke hone jare ho kese 43 saal beet gye pata hi nahi chala 🌚❤️🫣<br><br>
+    humari mummy sabse sunder dikhti hai ekdam pyaari hai 💗🫶🏻🌝<br><br>
+    bas humesha haste rho peso ki tension mat liya karo<br>
+    ek din aap sabse puree duniya se ameer banoge dek lena 😋😝❤️<br><br>
+    toh happy birthday mummy 💗🫶🏻
+  </div>
+
+  <button onclick="nextStep(7)">BUMPER PRIZE 🎁</button>
+</div>
+
+<!-- STEP 8 CHOCOLATE -->
+<div class="box" id="step8">
+  <h1>🍫 Bumper Prize is Here Birthday Girl 😭❤️</h1>
+  <p>Dairy Milk Silk BIG Surprise for Queen Poonam 👑</p>
+
+  <!-- Replace this image with your Pinterest Silk photo -->
+  <img src="silk.png" alt="Dairy Milk Silk">
+
+  <h1>🎂 Happy Birthday Mumma ❤️</h1>
+</div>
+
+<script>
+function startSite(){
+  document.getElementById("music").play();
+  nextStep(1);
+}
+
+function nextStep(step){
+  document.getElementById("step"+step).style.display="none";
+  document.getElementById("step"+(step+1)).style.display="block";
+}
+
+function checkAnswer(step){
+  let val=document.getElementById("ans"+step).value.trim();
+
+  let compliment="";
+  if(val.length > 12){
+    compliment="✨ Wahhh Queen Choice Miss Poonam 😍💖";
+  }
+  else if(val.length > 5){
+    compliment="🌸 Cute answer, future bright hai 😌💰";
+  }
+  else{
+    compliment="😏 Arre mummy ji thoda aur detail me bolo 😂";
+  }
+
+  document.getElementById("comp"+step).innerText=compliment;
+
+  setTimeout(()=> nextStep(step+1), 1200);
+}
+
+function boomTime(){
+  nextStep(5);
+}
+</script>
+
+</body>
+  </html><div class="box" id="step2">
+  <h1>🔮 Question 1</h1>
+  <p>
+    Apko next birthday kaha manana hai? 🎂✨
+  </p>
+  <input id="ans1" placeholder="Type your answer...">
+  <button onclick="checkAnswer(1)">Next ➝</button>
+  <div class="compliment" id="comp1"></div>
+  </div><div class="box" id="step3">
+  <h1>💎 Question 2</h1>
+  <p>
+    Apka favourite number kya hai? 🔢💖
+  </p>
+  <input id="ans2" placeholder="Type your answer...">
+  <button onclick="checkAnswer(2)">Next ➝</button>
+  <div class="compliment" id="comp2"></div>
+  </div><div class="box" id="step4">
+  <h1>💰 Question 3</h1>
+  <p>
+    Agar apko ek karod mil jaaye… toh sabse pehle kya karoge? 😋💸
+  </p>
+  <input id="ans3" placeholder="Type your answer...">
+  <button onclick="checkAnswer(3)">Next ➝</button>
+  <div class="compliment" id="comp3"></div>
+  </div>
